@@ -1,6 +1,7 @@
 #include <iostream>
 #include <deque>
 #include <cmath>
+#include <numeric>
 
 const size_t MAX_SIZE = 2;
 std::deque<double> values;
@@ -37,7 +38,8 @@ void addValue(double value) {
             return;
         }
 
-        double avg = (first + second) / 2.0;
+        //double avg = (first + second) / 2.0;
+        double avg = std::accumulate(values.begin(), values.end(), 0.0) / values.size();
         std::cout << "Average: " << avg << std::endl;
 
         values.clear();
