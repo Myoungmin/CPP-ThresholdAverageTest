@@ -27,10 +27,10 @@ void addValue(double value) {
         double second = values.back();
 
         double diff = std::abs(second - first);
-        double threshold = first * 0.2;
+        double threshold = std::min(first, second) * 0.2; // 더 작은 값 기준으로 threshold 계산
 
         if (diff > threshold) {
-            std::cout << "Difference too large! Clearing values." << std::endl;
+            std::cout << "Difference too large! first value pop." << std::endl;
             values.clear();
             values.push_back(second);
             printValues();
